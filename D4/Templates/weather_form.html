@@ -1,0 +1,12 @@
+{% block content %}
+	<h1>Weather Form</h1>
+	<form method = 'POST' action='http://localhost:5000/zipcode'>
+		{{ form.hidden_tag() }}
+		{% for message in get_flashed_message() %}
+			{% for key in message %}
+				{{key}} - {{message[key][0]}}
+		{% endfor %}
+		<p>{{ form.zipcode.label }}{{ form.zipcode() }}</p>
+		{{ form.submit() }}
+	</form>
+{% endblock %}
